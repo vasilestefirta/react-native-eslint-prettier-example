@@ -68,32 +68,42 @@ As a result, you'll end up having a `.eslintrc.json` file in the root of your pr
 
 ```json
 {
-  "env": {
-    "es2021": true,
-    "node": true
-  },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "es2021": true,
+        "node": true,
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["react"],
-  "rules": {}
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+    }
 }
 ```
 
-**NOTE:** React Native comes (at the moment of this writing) with a `.eslintrc.js` config, if that's still the case, simply remove it, since we'll use the JSON format of that config.
+**NOTE:** React Native comes (at the moment of this writing) with a `.eslintrc.js` config, and if that's still the case for you, then simply remove it, since we'll use the JSON format of that config.
 
 6. [React Hooks](https://reactjs.org/docs/hooks-intro.html) are pretty popular at this point and most likely every new React Native project will make use of them, so let's add the recommended ESLint rules for hooks. For that, update the `extends` section of your `.eslintrc.json` file like so:
 
 ```json
 {
-  //...
-  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks"]
-  //...
+    //...
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks"
+    ],
+    //...
 }
 ```
 
@@ -101,9 +111,12 @@ As a result, you'll end up having a `.eslintrc.json` file in the root of your pr
 
 ```json
 {
-  //...
-  "plugins": ["react", "react-native"]
-  //...
+    //...
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    //...
 }
 ```
 
@@ -115,13 +128,13 @@ node_modules/
 
 In our case, we simply want to ignore the `node_modules` folder from being linted.
 
-9. Last step here, is to configure your code editor to lint the code for you. If you're a [VS Code](https://code.visualstudio.com/) user, simply install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) VS Code extension. The only ESLint configuration you need to add to your VS Code settings is the following:
+9. Last step here, is to configure your code editor to lint the code for you. If you're a [VS Code](https://code.visualstudio.com/) user, simply install the [ESLint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). The only ESLint configuration you need to add to your VS Code settings is the following:
 
 ```json
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
 ```
 
@@ -135,9 +148,15 @@ In our case, we simply want to ignore the `node_modules` folder from being linte
 
 ```json
 {
-  //...
-  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier", "prettier/react"]
-  //...
+    //...
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "prettier",
+        "prettier/react"
+    ],
+    //...
 }
 ```
 
@@ -145,29 +164,35 @@ In our case, we simply want to ignore the `node_modules` folder from being linte
 
 ```json
 {
-  "arrowParens": "always",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "jsxSingleQuote": false,
-  "quoteProps": "as-needed",
-  "singleQuote": true,
-  "semi": true,
-  "printWidth": 100,
-  "useTabs": false,
-  "tabWidth": 2,
-  "trailingComma": "es5"
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "quoteProps": "as-needed",
+    "singleQuote": true,
+    "semi": true,
+    "printWidth": 100,
+    "useTabs": false,
+    "tabWidth": 2,
+    "trailingComma": "es5"
 }
 ```
 
 For more Prettier configuration options and an explanation of what each option does, see [Prettier Documentation](https://prettier.io/docs/en/options.html).
 
-**NOTE:** React Native comes (at the moment of this writing) with a `.prettierrc` config already, and if that's still the case for you, you can still use that config file instead of creating a new `.prettierrc.json` one. They both use the JSON format for specifying configuration options.
+**NOTE:** React Native comes (at the moment of this writing) with a `.prettierrc` config already, and if that's still the case for you, then you can still use that config file instead of creating a new `.prettierrc.json` one. They both use the JSON format for specifying configuration options.
 
-4. Last step here, is to configure your code editor to format your code using Prettier. If you're a [VS Code](https://code.visualstudio.com/) user, simply install the [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) VS Code extension. After the extension has been installed, add the following settings to your VS Code JSON config:
+4. Last step here, is to configure your code editor to format your code using Prettier. If you're a [VS Code](https://code.visualstudio.com/) user, simply install the [Prettier VS Code extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). After the extension has been installed, add the following settings to your VS Code JSON config:
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
 }
 ```
+
+## Final step
+
+If you're planning to have your React Native components written in `.js` files (which how this sample React Native project does), then you'll need to update the `react/jsx-filename-extension` ESLint rule for React to allow JSX in `.js` files. The final version of your `.eslintrc.json` file should look like [this](https://github.com/vasilestefirta/react-native-eslint-prettier-example/blob/master/.eslintrc.json).
+
+You can enable/disable/modify any ESLint rules within the `rules` section of your `.eslintrc.json` file.
