@@ -95,7 +95,7 @@ As a result, you'll end up having a `.eslintrc.json` file in the root of your pr
 
 6. [React Hooks](https://reactjs.org/docs/hooks-intro.html) are pretty popular at this point and most likely every new React Native project will make use of them, so let's add the recommended ESLint rules for hooks. For that, update the `extends` section of your `.eslintrc.json` file like so:
 
-```json
+```jsonc
 {
     //...
     "extends": [
@@ -109,7 +109,7 @@ As a result, you'll end up having a `.eslintrc.json` file in the root of your pr
 
 7. `npm install --save-dev eslint-plugin-react-native` - add support for [React Native specific ESLint rules](https://www.npmjs.com/package/eslint-plugin-react-native#list-of-supported-rules). After installing this package, update the `plugins` section of your `.eslintrc.json` file like so:
 
-```json
+```jsonc
 {
     //...
     "plugins": [
@@ -146,7 +146,7 @@ In our case, we simply want to ignore the `node_modules` folder from being linte
 
 2. `npm install --save-dev eslint-config-prettier` - we'll use Prettier for code formatting concerns, and ESLint for code-quality concerns, so we need to turns off all ESLint rules that are unnecessary or might conflict with Prettier. Once the package has been installed, we need to update the `extends` section of your `.eslintrc.json` file like so:
 
-```json
+```jsonc
 {
     //...
     "extends": [
