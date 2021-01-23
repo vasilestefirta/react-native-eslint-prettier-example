@@ -24,32 +24,38 @@ To see how you can run this app for iOS or Android please see the [Running your 
 ❯ To check syntax, find problems, and enforce code style
 
 # question 2:
+? What type of modules does your project use? …
+❯ JavaScript modules (import/export)
+  CommonJS (require/exports)
+  None of these
+
+# question 3:
 ? Which framework does your project use? …
 ❯ React
   Vue.js
   None of these
 
-# question 3 (select "No", because we won't add TypeScript support for this project):
+# question 4 (select "No", because we won't add TypeScript support for this project):
 ? Does your project use TypeScript? › No / Yes
 
-# question 4:
+# question 5:
 ? Where does your code run? …
   Browser
 ✔ Node
 
-# question 5:
+# question 6:
 ? How would you like to define a style for your project? …
 ❯ Use a popular style guide
   Answer questions about your style
   Inspect your JavaScript file(s)
 
-# question 6 (we'll rely on Airbnb's JavaScript style guide here):
+# question 7 (we'll rely on Airbnb's JavaScript style guide here):
 ? Which style guide do you want to follow? …
 ❯ Airbnb: https://github.com/airbnb/javascript
   Standard: https://github.com/standard/standard
   Google: https://github.com/google/eslint-config-google
 
-# question 7:
+# question 8:
 ? What format do you want your config file to be in? …
   JavaScript
   YAML
